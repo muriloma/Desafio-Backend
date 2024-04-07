@@ -23,9 +23,9 @@ const auth = async (req, res, next) => {
             return res.status(403).json({ message: 'User not allowed' });
         };
 
-        const { password: _, ...user } = userFromToken;
+        const { id, username } = userFromToken.dataValues;
 
-        req.user = user;
+        req.user = { id, username };
 
         next();
     } catch (error) {

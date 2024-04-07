@@ -48,4 +48,27 @@ const login = async (req, res) => {
 
 }
 
-export { createUser, login }
+const detailUser = async (req, res) => {
+    const user = req.user
+
+    return res.status(200).json(user);
+}
+
+const deleteUser = async (req, res) => {
+    const { id } = req.user;
+
+    try {
+        const filter = { where: { id } };
+
+        const countDeleted = await User.destroy(filter);
+
+        if (countDeleted <= 0) return res.status(404).json({ mensagem: "User not found" });
+
+        return res.status(200).json({ mensage: "User deleted" });
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({ erro: error.message })
+    }
+}
+
+export { createUser, login, detailUser, deleteUser }
