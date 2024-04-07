@@ -1,7 +1,19 @@
-import app from './src/app.js'
+import db from './db.js';
+import app from './src/app.js';
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 
-app.listen(
-    PORT, () => console.log(`App runing on PORT:::${PORT}`)
-)
+async function main() {
+    try {
+        await db.sync();
+
+
+        app.listen(
+            PORT, () => console.log(`App runing on PORT:::${PORT}`)
+        );
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+main();
