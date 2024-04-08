@@ -1,5 +1,5 @@
 import axios from 'axios';
-import devicesFilter from '../services/device-service';
+import devicesFilter from '../services/device-service.js';
 import { Telnet } from 'telnet-client';
 
 const listDevices = async (req, res) => {
