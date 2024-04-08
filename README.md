@@ -172,7 +172,7 @@ Esse endpoint lista todos os dispositivos da fabricante PredictWeather que capta
 ]
 ```
 
-#### Listar dispositivos: 
+#### Realiza medições: 
 `GET` `/device/measurement`
 
 Esse endpoint lista todas as medidas de intensidade de chuva realizadas pelos dispositivos da fabricante PredictWeather.
